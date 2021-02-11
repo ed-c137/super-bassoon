@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,4 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/api/book/app', 'App\Http\Controllers\BookController@index');
+Route::get('/book/', 'App\Http\Controllers\BookController@index');
+Auth::routes();
+//  Route::middleware('auth:sanctum')->get('/api/book/', 'App\Http\Controllers\BookController@index');
+//or
+// Route::get('/api/book/', [BookController::class, 'index']);
+
+
